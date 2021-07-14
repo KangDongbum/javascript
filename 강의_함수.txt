@@ -119,3 +119,36 @@
 	const	result =(function(a,b)){
 		return a+b;
 	})(2,3);
+
+3. 가변 인수
+	1) 함수안에는 arguments 변수가 존재
+	- 인수로 사용된 값을 배열 객체로 보관
+	
+	function testFunc() {
+		let str = "";
+		for(let i = 0; i < arguments.length; i++) {
+			str += arguments[i] + ",";
+		}
+
+		return str;
+	}
+	
+	testFunc(1,2,3,4,5,6,7,8);
+	
+	testFunc(1,2,3);
+	
+	2) ...인수 (마침표 3개)
+		- 가변인수(개수 상관 없이 입력할 수 있는 인수)
+		
+		function testFunc(...str) {
+			console.log(str);
+		}
+		
+		testFunc(1,2,3,4);
+		
+		function testFunc(separator, ...str) {
+			console.log(separator);
+			console.log(str);
+		}
+		
+		testFunc("/", "apple", "mango", "orange", "banana");
